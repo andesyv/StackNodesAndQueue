@@ -46,7 +46,14 @@ void CharStack::empty()
         p = p->hentNeste();
         delete current;
     }
+    topPtr = nullptr;
     stackCount = 0;
+
+    /* Mye enklere:
+     * while (size() > 0)
+     *  pop();
+     *
+     */
 }
 
 unsigned int CharStack::size()

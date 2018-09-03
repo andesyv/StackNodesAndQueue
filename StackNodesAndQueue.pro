@@ -6,11 +6,13 @@ CONFIG -= qt
 SOURCES += \
         main.cpp \
     charnode.cpp \
-    charstack.cpp
+    charstack.cpp \
+    nodedl.cpp
 
 HEADERS += \
     charnode.h \
     charstack.h \
     node.h \
     stack.h \
-    queue.h
+    queue.h \
+    nodedl.h

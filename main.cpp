@@ -32,7 +32,8 @@ int main()
     std::cout << std::endl << "static antall: " << liste->hentAntall() << std::endl;*/
 
     // Del 2, oppgave 1
-    /*CharStack stack{};
+    /*
+    CharStack stack{};
     stack.push('a');
     stack.push('b');
     stack.push('g');
@@ -48,7 +49,7 @@ int main()
     stack.empty();
     std::cout << "Size after emptying: " << stack.size() << std::endl; */
 
-    /*
+
     // Stack<char> myStack{'h', 'p', 'c', 'x', 's', 't', 'G', 'H', '*'};
     std::stack<char> myStack{};
     myStack.push('h');
@@ -59,7 +60,7 @@ int main()
     std::cout << "Top is: " << myStack.top() << std::endl;
     /* while (myStack.size() > 0) {
         std::cout << "Popped \"" << myStack.pop() << "\" off the stack." << std::endl;
-    } * /
+    } */
     while (myStack.size() > 0) {
         std::cout << "Popped \"" << myStack.top() << "\" off the stack." << std::endl;
         myStack.pop();
@@ -68,8 +69,9 @@ int main()
     myStack.empty();
     std::cout << "Size is: " << myStack.size() << std::endl;
     myStack.top(); // This is expected to throw an exception.
-    */
 
+
+    /*
     std::cout << "std::queue har push(), pop(), front(), size()\n";
     std::cout << "\nTester egen queue\n";
 
@@ -98,6 +100,7 @@ int main()
     std::cout << "queue size = " << q.size() << std::endl;
 
     std::cin >> ch;
+    */
     return 0;
 }
 
