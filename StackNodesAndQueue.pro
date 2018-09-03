@@ -6,8 +6,7 @@ CONFIG -= qt
 SOURCES += \
         main.cpp \
     charnode.cpp \
-    charstack.cpp \
-    nodedl.cpp
+    charstack.cpp
 
 HEADERS += \
     charnode.h \
