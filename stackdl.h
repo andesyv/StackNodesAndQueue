@@ -41,7 +41,9 @@ template<class T>
 void StackDL<T>::push(T value)
 {
     NodeDL<T> *newNode = new NodeDL<T>{value, m_topPtr, nullptr};
-    m_topPtr->m_last = newNode;
+    if (m_topPtr != nullptr) {
+        m_topPtr->m_last = newNode;
+    }
     m_topPtr = newNode;
 
     // Set pointer to last element if there are no elements in the stack.
@@ -58,15 +60,17 @@ void StackDL<T>::pop()
     if (m_topPtr == nullptr)
         return;
 
-    NodeDL<T>* tempPtr = m_topPtr;
+    NodeDL<T>* tempPtr{m_topPtr};
     /* Hvis den neste pointeren til top pointeren er 0,
      * jobber vi med det siste leddet og backPtr må derfor
      * bli satt til nullptr. */
     if (m_topPtr->m_next == nullptr) {
         m_backPtr = nullptr;
+        m_topPtr = nullptr;
+    } else {
+        m_topPtr = m_topPtr->m_next; // flytt top til neste i stacken
+        m_topPtr->m_last = nullptr; // Fjerner en dangling pointer. Farlig!
     }
-    m_topPtr = m_topPtr->m_next; // flytt top til neste i stacken
-    m_topPtr->m_last = nullptr; // Fjerner en dangling pointer. Farlig!
 
     delete tempPtr;
     m_nodeCount--;
