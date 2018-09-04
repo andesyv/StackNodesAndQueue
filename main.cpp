@@ -103,9 +103,10 @@ int main()
     std::cin >> ch;
     */
 
-    StackDL<char> doubleStack{'2', 'g'};
+    StackDL<char> doubleStack{'a', 'c'};
     std::cout << "Top of stack is: " << doubleStack.top() << std::endl;
-    doubleStack.push('3');
+    doubleStack.push('b');
+    doubleStack.sort();
     std::cout << "Top of stack is: " << doubleStack.top() << std::endl;
     std::cout << "Bottom of stack is: " << doubleStack.bottom() << std::endl;
     doubleStack.pop();

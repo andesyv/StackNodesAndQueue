@@ -8,12 +8,33 @@ class StackDL;
 #include <stdexcept>
 #include "nodedl.h"
 
+/* A doubly linked stack class
+ * that supports sorting as well
+ * as insertion of elements
+ * inbetween nodes. */
+
 template <class T>
 class StackDL {
 private:
     NodeDL<T> *m_topPtr{nullptr};
     NodeDL<T> *m_backPtr{nullptr};
     unsigned int m_nodeCount{0};
+
+    /** Jeg kan ikke vite om stacken er sorta
+     * eller ikke på grunn av at top() og
+     * bottom() kan endre verdiene i stacken
+     * uten at jeg kan se at de har blitt endret.
+     * Hvis jeg skulle kontrollert om stacken
+     * hadde vært sorta eller ikke burde jeg nok
+     * ha brukt getters / setters, men det hadde
+     * gjort stacken litt mer tungvinn å bruke.
+     *
+     * Stacken blir derfor litt mindre effektiv
+     * fordi den må sorte stacken hvis den skal
+     * legge inn et element i midten av stacken,
+     * uansett om stacken er sortert eller ikke
+     * på forrhånd. */
+    // bool isSorted{false};
 
 public:
     StackDL(const std::initializer_list<T> &list);
@@ -24,6 +45,13 @@ public:
     T& bottom();
     unsigned int size();
     void empty();
+
+    /* Sorterer verdiene i nodene slik at de
+     * laveste er nederst og de høyeste øverst. */
+    void sort();
+
+    // void insert(T value, int index);
+    // void insert(T value, T before);
 };
 
 
@@ -52,6 +80,10 @@ void StackDL<T>::push(T value)
     }
 
     m_nodeCount++;
+
+    // It's not sorted anymore.
+//    if (isSorted)
+//        isSorted = false;
 }
 
 template<class T>
@@ -105,6 +137,30 @@ void StackDL<T>::empty()
     while (size() > 0) {
         pop();
     }
+}
+
+template<class T>
+void StackDL<T>::sort()
+{
+//    // No need to sort an already sorted
+//    if (isSorted)
+//        return;
+
+    // Using selection sort
+    for (NodeDL<T>* outer{m_topPtr}; outer != nullptr; outer = outer->m_next) {
+        NodeDL<T>* currentHighest{outer};
+        for (NodeDL<T>* inner{outer}; inner != nullptr; inner = inner->m_next) {
+            // Er den nye høyere?
+            if (inner->getData() > currentHighest->getData()) {
+                currentHighest = inner;
+            }
+        }
+        // Hvis currentHighest ikke er det den startet på, bytt om på dem.
+        if (currentHighest != outer) {
+            std::swap(currentHighest->getData(), outer->getData());
+        }
+    }
+//    isSorted = true;
 }
 
 
