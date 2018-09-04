@@ -10,13 +10,18 @@
 template <class T>
 class NodeDL
 {
+    template <class U>
+    friend class StackDL;
+
 public:
     NodeDL(T data, NodeDL<T> *next = nullptr, NodeDL<T> *last = nullptr)
         : m_data{data}, m_next{next}, m_last{last} {}
 
     T& getData() { return m_data; }
+    /*
     NodeDL<T>* next() { return m_next; }
     NodeDL<T>* last() { return m_last; }
+    */
 private:
     T m_data{};
     NodeDL<T> *m_next{nullptr};

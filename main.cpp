@@ -8,6 +8,7 @@
 // #include "stack.h"
 // using namespace ADS101;
 #include <stack>
+#include "stackdl.h"
 int main()
 {
     /*ADS101::CharNode* liste = new ADS101::CharNode('a');
@@ -49,7 +50,7 @@ int main()
     stack.empty();
     std::cout << "Size after emptying: " << stack.size() << std::endl; */
 
-
+    /*
     // Stack<char> myStack{'h', 'p', 'c', 'x', 's', 't', 'G', 'H', '*'};
     std::stack<char> myStack{};
     myStack.push('h');
@@ -60,7 +61,7 @@ int main()
     std::cout << "Top is: " << myStack.top() << std::endl;
     /* while (myStack.size() > 0) {
         std::cout << "Popped \"" << myStack.pop() << "\" off the stack." << std::endl;
-    } */
+    } * /
     while (myStack.size() > 0) {
         std::cout << "Popped \"" << myStack.top() << "\" off the stack." << std::endl;
         myStack.pop();
@@ -69,7 +70,7 @@ int main()
     myStack.empty();
     std::cout << "Size is: " << myStack.size() << std::endl;
     myStack.top(); // This is expected to throw an exception.
-
+    */
 
     /*
     std::cout << "std::queue har push(), pop(), front(), size()\n";
@@ -101,6 +102,10 @@ int main()
 
     std::cin >> ch;
     */
+
+    StackDL<char> doubleStack{'2', 'g', 'c', '5', 'n'};
+    // std::cout << "Top of stack is: " << doubleStack.top() << std::endl;
+
     return 0;
 }
 
