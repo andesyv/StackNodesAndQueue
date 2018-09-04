@@ -14,4 +14,5 @@ HEADERS += \
     node.h \
     stack.h \
     queue.h \
-    nodedl.h
+    nodedl.h \
+    stackdl.h
