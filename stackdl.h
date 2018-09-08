@@ -51,7 +51,7 @@ public:
     void sort();
 
     // void insert(T value, int index);
-    // void insert(T value, T before);
+    void insert(T value, T before);
 };
 
 
@@ -160,7 +160,18 @@ void StackDL<T>::sort()
             std::swap(currentHighest->getData(), outer->getData());
         }
     }
-//    isSorted = true;
+    //    isSorted = true;
+}
+
+template<class T>
+void StackDL<T>::insert(T value, T before)
+{
+    for (NodeDL<T>* ptr{m_topPtr}; ptr != nullptr; ptr = ptr->m_next) {
+        if (ptr->getData() >= before) {
+            break;
+        }
+    }
+    // Start insertion process.
 }
 
 

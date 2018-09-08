@@ -50,7 +50,6 @@ int main()
     stack.empty();
     std::cout << "Size after emptying: " << stack.size() << std::endl; */
 
-    /*
     // Stack<char> myStack{'h', 'p', 'c', 'x', 's', 't', 'G', 'H', '*'};
     std::stack<char> myStack{};
     myStack.push('h');
@@ -61,7 +60,7 @@ int main()
     std::cout << "Top is: " << myStack.top() << std::endl;
     /* while (myStack.size() > 0) {
         std::cout << "Popped \"" << myStack.pop() << "\" off the stack." << std::endl;
-    } * /
+    } */
     while (myStack.size() > 0) {
         std::cout << "Popped \"" << myStack.top() << "\" off the stack." << std::endl;
         myStack.pop();
@@ -69,8 +68,8 @@ int main()
     std::cout << "Size is: " << myStack.size() << std::endl;
     myStack.empty();
     std::cout << "Size is: " << myStack.size() << std::endl;
-    myStack.top(); // This is expected to throw an exception.
-    */
+    myStack.top(); // This is expected to throw an exception when using custom Stack class.
+
 
     /*
     std::cout << "std::queue har push(), pop(), front(), size()\n";
@@ -103,20 +102,20 @@ int main()
     std::cin >> ch;
     */
 
-    StackDL<char> doubleStack{'a', 'c'};
-    std::cout << "Top of stack is: " << doubleStack.top() << std::endl;
-    doubleStack.push('b');
-    doubleStack.sort();
-    std::cout << "Top of stack is: " << doubleStack.top() << std::endl;
-    std::cout << "Bottom of stack is: " << doubleStack.bottom() << std::endl;
-    doubleStack.pop();
-    doubleStack.pop();
-    doubleStack.pop();
-    doubleStack.pop();
-    // std::cout << "Top of stack is: " << doubleStack.top() << std::endl;
-    std::cout << "Size of stack is: " << doubleStack.size() << std::endl;
-    doubleStack.empty();
-    std::cout << "Size of stack is: " << doubleStack.size() << std::endl;
+//    StackDL<char> doubleStack{'a', 'c'};
+//    std::cout << "Top of stack is: " << doubleStack.top() << std::endl;
+//    doubleStack.push('b');
+//    doubleStack.sort();
+//    std::cout << "Top of stack is: " << doubleStack.top() << std::endl;
+//    std::cout << "Bottom of stack is: " << doubleStack.bottom() << std::endl;
+//    doubleStack.pop();
+//    doubleStack.pop();
+//    doubleStack.pop();
+//    doubleStack.pop();
+//    // std::cout << "Top of stack is: " << doubleStack.top() << std::endl;
+//    std::cout << "Size of stack is: " << doubleStack.size() << std::endl;
+//    doubleStack.empty();
+//    std::cout << "Size of stack is: " << doubleStack.size() << std::endl;
 
     return 0;
 }
