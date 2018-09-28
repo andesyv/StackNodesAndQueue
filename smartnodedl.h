@@ -23,6 +23,14 @@ public:
         std::cout << "Node constructed!" << std::endl;
     }
 
+    SmartNodeDL<T> * getNext() {
+        return m_next.get();
+    }
+
+    std::unique_ptr<SmartNodeDL<T>> getNextSmart() {
+       return m_next;
+    }
+
     ~SmartNodeDL() {
         std::cout << "Node destructed!" << std::endl;
     }
