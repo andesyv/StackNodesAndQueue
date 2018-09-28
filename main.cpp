@@ -9,6 +9,7 @@
 // using namespace ADS101;
 #include <stack>
 #include "stackdl.h"
+#include "smartstackdl.h"
 int main()
 {
     /*ADS101::CharNode* liste = new ADS101::CharNode('a');
@@ -50,25 +51,25 @@ int main()
     stack.empty();
     std::cout << "Size after emptying: " << stack.size() << std::endl; */
 
-    // Stack<char> myStack{'h', 'p', 'c', 'x', 's', 't', 'G', 'H', '*'};
-    std::stack<char> myStack{};
-    myStack.push('h');
-    myStack.push('p');
-    myStack.push('c');
-    myStack.push('x');
+//    // Stack<char> myStack{'h', 'p', 'c', 'x', 's', 't', 'G', 'H', '*'};
+//    std::stack<char> myStack{};
+//    myStack.push('h');
+//    myStack.push('p');
+//    myStack.push('c');
+//    myStack.push('x');
 
-    std::cout << "Top is: " << myStack.top() << std::endl;
-    /* while (myStack.size() > 0) {
-        std::cout << "Popped \"" << myStack.pop() << "\" off the stack." << std::endl;
-    } */
-    while (myStack.size() > 0) {
-        std::cout << "Popped \"" << myStack.top() << "\" off the stack." << std::endl;
-        myStack.pop();
-    }
-    std::cout << "Size is: " << myStack.size() << std::endl;
-    myStack.empty();
-    std::cout << "Size is: " << myStack.size() << std::endl;
-    myStack.top(); // This is expected to throw an exception when using custom Stack class.
+//    std::cout << "Top is: " << myStack.top() << std::endl;
+//    /* while (myStack.size() > 0) {
+//        std::cout << "Popped \"" << myStack.pop() << "\" off the stack." << std::endl;
+//    } */
+//    while (myStack.size() > 0) {
+//        std::cout << "Popped \"" << myStack.top() << "\" off the stack." << std::endl;
+//        myStack.pop();
+//    }
+//    std::cout << "Size is: " << myStack.size() << std::endl;
+//    myStack.empty();
+//    std::cout << "Size is: " << myStack.size() << std::endl;
+//    myStack.top(); // This is expected to throw an exception when using custom Stack class.
 
 
     /*
@@ -116,6 +117,20 @@ int main()
 //    std::cout << "Size of stack is: " << doubleStack.size() << std::endl;
 //    doubleStack.empty();
 //    std::cout << "Size of stack is: " << doubleStack.size() << std::endl;
+
+//    auto node = std::make_unique<SmartNodeDL<int>>(4);
+//    std::cout << "This is a message to stop the flow of the program!" << std::endl;
+//    node = std::make_unique<SmartNodeDL<int>>(6, std::move(node));
+//    std::cout << "This is another message." << std::endl;
+    // SmartNodeDL<int> *firstNode = new SmartNodeDL<int>{4};
+
+    auto node = std::make_unique<SmartStackDL<int>>();
+    node->push(5);
+    node->push(8);
+    node->push(3);
+    std::cout << "This is a message!" << std::endl;
+    node = nullptr;
+    std::cout << "This is another message!" << std::endl;
 
     return 0;
 }
